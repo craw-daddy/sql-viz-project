@@ -5,7 +5,6 @@ from vega_datasets import data
 
 def plot_wells(well_coords):
     """Return JSON of Altair chart."""
-
     # Process data
     counties = alt.topo_feature(data.us_10m.url, 'counties')
     columns = ['latitude', 'longitude', 'depth', 'gradient']

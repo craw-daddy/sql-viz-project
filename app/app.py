@@ -1,18 +1,19 @@
 from flask import Flask, render_template, request
 
-from app.database import query_db
-from app.plot import plot_wells
+from database import query_db
+from plot import plot_wells
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def root():
+    """Route to initial webpage."""   
     return render_template('index.html')
-
 
 @app.route('/plot', methods=['POST'])
 def plot():
+    """Plot oil wells that satisfy the requirements."""
     depth_min = request.form['depth_min']
     grad_min = request.form['grad_min']
 
@@ -20,3 +21,6 @@ def plot():
     chart_json = plot_wells(data)
 
     return render_template('plot.html', chart=chart_json)
+
+if __name__ == "__main__":
+    app.run()

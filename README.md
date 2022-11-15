@@ -13,6 +13,7 @@ If you are using a virtual environment, run:
 * `flask run`
 
 Note that for deployment on Render.com, you must get the `URL_DB` environmental variable into the system.  
+
 Since the code is using the `dotenv` library, an easy way to do this is to create a `.env` file where this variable is defined.  On the Render dashboard, when you first create the deployment (or afterwards, if you forget), you can inject a `.env` file into the directory of the deployment (since this file is not part of the repository).  
 
 Make certain that you specify where to find the main application, in the command to run `gunicorn` on the project dashboard, as the main application is not in the root-level directory of the project.  
